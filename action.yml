@@ -13,8 +13,8 @@ inputs:
   refresh-token:
     description: 'Google OAuth2 refresh token'
   publish-target:
-    description: 'Chrome Stroe publish target "default" | "trustedTesters"'
+    description: 'Chrome Store publish target "default" | "trustedTesters"'
     default: 'default'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

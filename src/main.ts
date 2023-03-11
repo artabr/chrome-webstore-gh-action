@@ -8,7 +8,8 @@ async function requestToken(id: string, secret: string, refresh: string) {
     client_id: id,
     client_secret: secret,
     refresh_token: refresh,
-    grant_type: 'refresh_token'
+    grant_type: 'refresh_token',
+    redirect_uri: 'urn:ietf:wg:oauth:2.0:oob'
   });
   return response.data.access_token;
 }
@@ -74,7 +75,7 @@ async function run() {
       await publishAddon(extension, token, publishTarget);
     }
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed((error as Error).message);
   }
 }
 
